@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
-from tradefair.api import LocationList
+from tradefair.api import *;
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^api/locations/$', LocationList.as_view(), name="locations" )
+    url(r'^api/locations/$', LocationList.as_view(), name="locations" ),
+    url(r'^api/owners/$', OwnerList.as_view(), name="owners"),
+    url(r'^api/stores/$', StoreList.as_view(), name="stores"),
+    # url(r'^api/products/$', ProductList.as_view(), name="products"),
+    # url(r'^api/futured-products/$', FuturedProductList.as_view(), name="futured-products")
 ]
